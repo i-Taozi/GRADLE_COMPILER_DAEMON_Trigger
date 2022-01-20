@@ -1,0 +1,1 @@
+# GRADLE_COMPILER_DAEMON_Trigger
