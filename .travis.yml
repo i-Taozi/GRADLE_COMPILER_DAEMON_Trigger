@@ -1,29 +1,35 @@
-language: java
-sudo: false
+language: android
 jdk: oraclejdk8
-install: ./travis/build.sh
+dist: trusty
+env:
+  matrix:
+    - ANDROID_TARGET=android-28 ANDROID_ABI=x86 org.gradle.jvmargs=-XX:-OmitStackTraceInFastThrow
+android:
+  components:
+  - platform-tools
+  - tools
+  - build-tools-28.0.3
+  - android-28
+  - extra-google-m2repository
+  - extra-android-m2repository
+  - extra-google-google_play_services
+  
+before_install:
+#- yes | sdkmanager "platforms;android-28"
+
 script:
-  - ./travis/javadoc.sh
-  - ./travis/sonar.sh
-after_success: 
-  - ./travis/dropbox.sh
-  - ./travis/solder.sh
-#before_cache:
-#  - rm -rfv $HOME/.gradle/caches/*/plugin-resolution/
-#  - rm -rfv $HOME/.gradle/caches/modules-2/modules-2.lock
-#  - rm -rfv $HOME/.gradle/caches/minecraft/McpMappings.json
-#  - rm -rfv $HOME/.gradle/caches/minecraft/deobfedDeps/providedDummy.jar
-#  - rm -rfv $HOME/.gradle/caches/minecraft/deobfedDeps/compileDummy.jar
-#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/gradle.log
-#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/2.10/taskArtifacts/cache.properties
-#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/2.10/taskArtifacts/cache.properties.lock
-#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/2.10/taskArtifacts/fileHashes.bin
-#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/2.10/taskArtifacts/fileSnapshots.bin
-#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/2.10/taskArtifacts/outputFileStates.bin
-#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/2.10/taskArtifacts/taskArtifacts.bin
-#cache:
-#  directories:
-#    - $HOME/.m2
-#    - .gradle
-#    - $HOME/.gradle/caches/
-#    - $HOME/.gradle/wrapper/
+  # Unit Test
+  - ./gradlew -Pcoverage -PfirebaseDisable testFullDebugUnitTest jacocoTestFullDebugUnitTestReport
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
