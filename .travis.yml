@@ -1,40 +1,29 @@
 language: java
-dist: trusty
-sudo: true
-before_cache:
-   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-cache:
-  directories:
-   - $HOME/.gradle/caches/
-   - $HOME/.gradle/wrapper/
-   - $HOME/.m2
-
-env:
-   - GRADLE_VERSION=5.1.1
-
-jdk:
-    - openjdk11
-
-matrix:
-  fast_finish: true
-  include:
-     - jdk: openjdk11
-
-
+sudo: false
+jdk: oraclejdk8
+install: ./travis/build.sh
 script:
-    -  gradle all
-
-before_install:
-   - sudo apt-get update -qq
-
-   
-
-install:
-   - wget -O "gradle-5.1.1-bin.zip" "https://services.gradle.org/distributions/gradle-5.1.1-bin.zip"
-   - sudo mkdir -p /opt/gradle
-   - sudo unzip -d /opt/gradle gradle-5.1.1-bin.zip
-   - export PATH=/opt/gradle/gradle-5.1.1/bin:${PATH}
-   - gradle --version
-   - gradle wrapper
-   - chmod +x ./gradlew
-   - ./gradlew all
+  - ./travis/javadoc.sh
+  - ./travis/sonar.sh
+after_success: 
+  - ./travis/dropbox.sh
+  - ./travis/solder.sh
+#before_cache:
+#  - rm -rfv $HOME/.gradle/caches/*/plugin-resolution/
+#  - rm -rfv $HOME/.gradle/caches/modules-2/modules-2.lock
+#  - rm -rfv $HOME/.gradle/caches/minecraft/McpMappings.json
+#  - rm -rfv $HOME/.gradle/caches/minecraft/deobfedDeps/providedDummy.jar
+#  - rm -rfv $HOME/.gradle/caches/minecraft/deobfedDeps/compileDummy.jar
+#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/gradle.log
+#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/2.10/taskArtifacts/cache.properties
+#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/2.10/taskArtifacts/cache.properties.lock
+#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/2.10/taskArtifacts/fileHashes.bin
+#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/2.10/taskArtifacts/fileSnapshots.bin
+#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/2.10/taskArtifacts/outputFileStates.bin
+#  - rm -rfv $TRAVIS_BUILD_DIR/.gradle/2.10/taskArtifacts/taskArtifacts.bin
+#cache:
+#  directories:
+#    - $HOME/.m2
+#    - .gradle
+#    - $HOME/.gradle/caches/
+#    - $HOME/.gradle/wrapper/
