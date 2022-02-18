@@ -1,18 +1,41 @@
+sudo: required
+dist: xenial
+addons:
+  apt:
+    packages: haveged
 language: java
-sudo: false
-env:
-  global:
-  - secure: geb4AbjI6MxYGQ0/JIQ3gmfTbgwAunS4sIPHYg/Ap0JdATJ2ZOtPgOLwCxE2DzwMRLqAOsVCoOdEaDjBqx5PW2ull3N/v75Nq39fVAFa+JMqU1H4IoF68TKOwEJ98VryfqAHSnp6/5KFOE8DjXNQ/AqTqyFLJ1FSkHrdmE7ulck=
-  - secure: bjxJnjs5uXxAi5wGwI5eWflEBMEo3RSKVj0rnElRWYQFjERl2Wz0E3aGfc/XE7SI1jmjWj4BvkjuIVhA6rybiEZa9P9ioGfuAYBUxFD+B1knxq+NLWEjU9GbhwSL/VkteH3ShaRBw/lHTyPN58rhy+a/9iF8W0VLLU5b/x+UhXo=
-before_install:
-  - echo "db.sa.username = root" > features/build.properties
-  - echo "db.sa.password = "    >> features/build.properties
-  - echo "db.sa.username = root" > starter/build.properties
-  - echo "db.sa.password = "    >> starter/build.properties
-  - cat features/build.properties
-after_success:
-  - test -n "$TRAVIS_TAG" && ssh-keyscan -H repo.joist.ws >> ~/.ssh/known_hosts && ./gradlew uploadArchives
 jdk:
   - openjdk8
-services:
-  - mysql
+  - openjdk9
+  - openjdk10
+  - openjdk11
+  - openjdk12
+  - openjdk13
+  - openjdk14
+  - openjdk15
+before_script:
+  - echo $JAVA_OPTS
+  - export JAVA_OPTS=-Xmx4G
+install: true
+script:
+  - java -version
+  - ulimit -a
+  - TERM=dumb ./gradlew jpos:assemble jpos:check jpos:dependencyCheckAnalyze --info
+deploy:
+  provider: script
+  script: bash .travis/update-gh-pages.sh
+  on:
+    branch: master
+env:
+  global:
+    secure: ZWDnTNCsRaxOV4hPiWslj1ieKwYjuxBA4COHFVApxr8TBcQEwhPAzo+b+WbDsi45rJkk/Ee9Du0+mbT//x3TTK78fePg6EDk0WBSmWRUFC3eITgTmUJe7Qh5VOUZOdz9vFaYH8080/CB4VyygJuSp2XLte+S/MVSoXVVABrNggU=
+notifications:
+  slack:
+    secure: opKU+4jJWYuhq5STCVW2cvxEq/1/xY17xpxGKoJXWA+RbhPo+viT5uJLmb67HwdmvQNwUVAW6uOLO7SDOmpGh5oAwpI74DrA0y6uEzN6GgzutZDBY5oCMRYCGi/5xNOuzDdsryDtSJvXWLxyCysnTrAqqQ9XdOnRK/ZqSIeQg+s=
+matrix:
+  include:
+    - jdk: oraclejdk8
+      dist: trusty
+  allow_failures:
+    - jdk: openjdk9
+    - jdk: openjdk10
