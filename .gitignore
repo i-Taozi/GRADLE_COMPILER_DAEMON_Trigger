@@ -1,24 +1,50 @@
-application.log
-application.log*
-target/
-bin/
-log.roo
-.project
-.classpath
-.springBeans
-.DS_Store
+# Warp 10 Platform
+# -------------------
+warp10/src/main/resources/REVISION
+/CHANGELOG.md
+archive/
+generated/
+
+# Gradle
+# ------
+.gradle/
+build/
+
+# IDEA
+# ----
+.idea/
+#!/.idea
+#/.idea/*
+#!/.idea/codeStyles
+#!/.idea/inspectionProfiles
 *.iml
 *.ipr
 *.iws
-derby.log
-.idea
-activemq-data
+out/
+
+# Eclipse
+# -------
+.classpath
+.project
 .settings/
-.sts4-cache
-.factorypath
-out
-/.gradle
-build/
-/classes
-.mvn
-mvnw*
+.metadata
+bin/
+
+# VS Code
+# -------
+.vscode/
+.history/
+
+# macOS
+# -----
+.DS_Store
+
+# Logs
+# ----
+*.log
+
+# Backup
+# ------
+*.tmp
+*.bak
+*.swp

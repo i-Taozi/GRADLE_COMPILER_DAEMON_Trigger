@@ -1,144 +1,86 @@
-Spring Integration Samples
-==========================
+[![Release](https://img.shields.io/github/v/release/senx/warp10-platform)](https://github.com/senx/warp10-platform/releases/latest)
+[![Build Status](https://www.travis-ci.com/senx/warp10-platform.svg?branch=master)](https://www.travis-ci.com/senx/warp10-platform)
+[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Get%20The%20Most%20Advanced%20Time%20Series%20Platform&url=https://warp10.io/download&via=warp10io&hashtags=tsdb,database,timeseries,opensource)
 
-# Note
+<p align="center"><a href="https://warp10.io" title="Warp 10 Platform"><img src="https://warp10.io/assets/img/warp10_bySenx_dark.png" alt="Warp 10 Logo" width="50%"></a></p>
 
-This (main) branch requires Spring Integration 5.0 or above. For samples running against earlier versions of Spring Integration, use the __SI4.3.x__ and other branches.
+# Warp 10
+## Go further and faster in your journey to get value from your data
 
-# Introduction
+Warp 10 is a modular open source platform designed to collect, store and analyze sensors / time series data and any kind of sequence data in a horizontal and industrial perspective.
 
-Welcome to the **Spring Integration Samples** repository which provides **50+ samples** to help you learn [Spring Integration][]. To simplify your experience, the *Spring Integration* samples are split into 4 distinct categories:
+<p align="center"><a href="https://youtu.be/-5dAB7-dHaQ"><img src="https://warp10.io/assets/img/thumbnail_warp10_video.jpg" alt="Warp 10 simplifies sensor data management and analytics." width="50%"></a></p>
 
-* Basic
-* Intermediate
-* Advanced
-* Applications
-* DSL
+## Warp 10 simplifies data management and analytics
+Shaped for the Internet of Things (IoT) with a flexible data model, Warp 10 provides a unique and powerful framework to simplify your processes from data collection to analysis and visualization, with the support of geolocated data in its core model (called Geo Time Series).
 
-Inside of each category you'll find a **README.md** file, which will contain a more detailed description of that category. Each sample also comes with its own **README.md** file explaining further details, e.g. how to run the respective sample.
+Geo Time Series extend the notion of Time Series by merging the sequence of sensor readings with the sequence of sensor locations. If your data have no location information, Warp 10 will handle them as regular Time Series.
 
-| For additional samples, please also checkout the [Spring Integration Extensions][] project as it also provides numerous samples.
+Warp 10 offers both a Time Series Database and a powerful analysis environment that can be used together or independently.
 
-*Happy Integration!*
+## Features
 
-## Related GitHub projects
+The Warp 10 Platform provides a rich set of features to simplify your work on sensor data:
+* **A powerful Analytics Engine** with [WarpLib](https://www.warp10.io/doc/reference), a library dedicated to time series data analysis with more than 1000 functions and extension capabilities to perform data analysis, from the simplest to the most advanced. Use the Analytics Engine integrated in the Warp 10 platform or as an external library in your tools.
+* **Warp 10 Storage Engine**, our collection and storage layer, a Geo Time Series Database
+* **The Edge version**, to implement Warp 10 on any machine technical system or device by adjunction of additional board or box thanks to a wide range of connectors.
+* [**WarpScript**](https://www.warp10.io/content/03_Documentation/04_WarpScript), a language specifically designed for analytics of time series data. It is one of the pillars of the analytics layer of the Warp 10 Platform
+* [**FLoWS**](https://www.warp10.io/content/03_Documentation/04_FLoWS), an alternative to WarpScript for users discovering the Warp 10 Platform. It is meant to be easy to learn, look familiar to users of other programming languages, and enable time series analysis by leveraging the whole of WarpLib.
+* **Plasma and Mobius**, streaming engines allowing to cascade the Warp 10 Platform with Complex Event Processing solutions and to build dynamic dashboards
+* **Runner**, a system for scheduling WarpScript program executions on the server side
+* [**Sensision**](https://github.com/senx/sensision), a framework for exposing metrics and pushing them into Warp 10
+* **Standalone version** running on a [Raspberry Pi](https://blog.senx.io/warp-10-raspberry-bench-for-industrial-iot/) as well as on a beefy server, with no external dependencies
+* Replication and sharding of standalone instances using the **Datalog mechanism**
+* **Distributed version**, based on Hadoop HBase for the most demanding environments
+* Integration with [Pig](https://github.com/senx/warp10-pig), [Spark](https://github.com/senx/warp10-spark2), [Flink](https://github.com/senx/warp10-flink), [NiFi](https://github.com/senx/nifi-warp10-processor), [Kafka Streams](https://github.com/senx/warp10-plugin-kstreams) and [Storm](https://github.com/senx/warp10-storm) for batch and streaming analysis.
+* An easy integration into a **large ecosystem** of existing tools, such as Jupyter, Python, HTTP, Json, NodeRed, R, Zeppelin, Tableau, Pytorch, MQTT, LevelDB, Avro and more.
 
-* [Spring Integration][]
-* [Spring Integration Extensions][]
-* [Spring Integration Templates][]
-* [Spring Integration Java Dsl][]
-* [Spring Integration Dsl Groovy][]
-* [Spring Integration Dsl Scala][]
-* [Spring Integration Pattern Catalog][]
+A collection of tools that complete the Platform and ease your work on time series data:
+* [WarpStudio](https://studio.senx.io/), a web editor, to edit and execute your WarpScript and FLoWS code.
+* [WarpFleet](https://warpfleet.senx.io/), the artifact repository, to share your plugins, extensions and macros.
+* [Sandbox](https://sandbox.senx.io), a hosted environment for test driving Warp 10 without deploying it.
+* [WarpView](https://senx.github.io/warpview/), a collection of charting web components
+* [Discovery](https://warp10.io/content/05_Ecosystem/02_Visualization/02_Discovery/00_Overview), a dynamic dashboarding solution with a unique dashboard as code approach.
 
-## Community Sample Projects
+## Getting started
 
-* [Xavier Padró][]
+We strongly recommend you to start with the [getting started](https://www.warp10.io/content/02_Getting_started).
+You will learn the basics and the concepts behind Warp 10 step by step.
 
-# Categories
+Learn more by browsing the [documentation](https://www.warp10.io/doc/reference).
 
-Below is a short description of each category.
+To test Warp 10 without installing it, try the [free sandbox](https://sandbox.senx.io/) where you can get your hands on in no time.
 
-## DSL
 
-This directory holds demos/samples for Spring Integration 4.0 Java Configuration as well as the Java DSL Extension.
 
-## Basic
+## Help & Community
 
-This is a good place to get started. The samples here are technically motivated and demonstrate the bare minimum with regard to configuration and code to help you to get introduced to the basic concepts, API and configuration of Spring Integration. For example, if you are looking for an answer on how to wire a **Service Activator**  to a **Channel** or how to apply a **Gateway** to your message exchange or how to get started with using the **MAIL** or **XML** module, this would be the right place to find a relevant sample. The bottom line is that this is a good starting point.
+The team has put lots of efforts into the [documentation](https://www.warp10.io/doc/reference) of the Warp 10 Platform, there are still some areas which may need improving, so we count on you to raise the overall quality.
 
-* **amqp** - Demonstrates the functionality of the various **AMQP Adapters**
-* **barrier** - Shows how to suspend a thread until some asynchronous event occurs
-* **control-bus** - Demonstrates the functionality of the **Control Bus**
-* **enricher** - This sample demonstrates how the Enricher components can be used
-* **feed** - Demonstrates the functionality of the **Feed Adapter** (RSS/ATOM)
-* **file** - Demonstrates aspects of the various File Adapters (e.g. **File Inbound/Outbound Channel Adapters**, file **polling**)
-* **ftp** - Demonstrates the **FTP support** available with Spring Integration
-* **helloworld** - Very simple starting example illustrating a basic message flow (using **Channel**, **ServiceActivator**, **QueueChannel**)
-* **http** - Demonstrates request/reply communication when using a pair of **HTTP Inbound/Outbound gateways**
-* **jdbc** - Illustrates the usage of the Jdbc Adapters, including object persistence and retrieval
-* **jms** - Demonstrates **JMS** support available with Spring Integration
-* **jmx** - Demonstrates **JMX** support using a **JMX Attribute Polling Channel** and **JMX Operation Invoking Channel Adapter**
-* **jpa** - Shows the usage of the JPA Components can be used
-* **mail** - Example showing **IMAP** and **POP3** support
-* **mqtt** - Demonstrates the functionality of inbound and outbound **MQTT Adapters**
-* **mongodb** - Shows how to persist a Message payload to a **MongoDb** document store and how to read documents from **MongoDb**
-* **oddeven** - Example combining the functionality of **Inbound Channel Adapter**, **Filter**, **Router** and **Poller**
-* **jpa** - This sample illustrates how the JPA Components can be used
-* **quote** - Example demoing core EIP support using **Channel Adapter (Inbound and Stdout)**, **Poller** with Interval Trigers, **Service Activator**
-* **sftp** - Demonstrating SFTP support using **SFTP Inbound / Outbound Channel Adapters**
-* **tcp-amqp** - Demonstrates basic functionality of bridging the **Spring Integration TCP Adapters** with **Spring Integration AMQP Adapters**
-* **tcp-broadcast** - Demonstrates broadcasting a message to multiple connected TCP clients.
-* **tcp-client-server** - Demonstrates socket communication using **TcpOutboundGateway**, **TcpInboundGateway** and also uses a **Gateway** and a **Service Activator**
-* **tcp-with-headers** - Demonstrates sending headers along with the payload over TCP using JSON.
-* **testing-examples** - A series of test cases that show techniques to **test** Spring Integration applications.
-* **twitter** - Illustrates Twitter support using the **Twitter Inbound Channel Adapter**, **Twitter Inbound Search Channel Adapter**, **Twitter Outbound Channel Adapter**
-* **ws-inbound-gateway** - Example showing basic functionality of the **Web Service Gateway**
-* **ws-outbound-gateway** - Shows outbound web services support using the **Web Service Outbound Gateway**, **Content Enricher**, Composed Message Processor (**Chain**)
-* **xml** - Example demonstrates various aspects of the **Xml** support using an **XPath Splitter**, **XPath Router**, **XSLT Transformer** as well as **XPath Expression** support
-* **xmpp** - Show the support for [**XMPP**](https://en.wikipedia.org/wiki/Extensible_Messaging_and_Presence_Protocol) (formerly known as Jabber) using e.g. GoogleTalk
+We understand that discovering all the features of the Warp 10 Platform at once can be intimidating, that’s why you have several options to find answers to your questions:
+* Explore the [blog](https://blog.senx.io/) and especially the Tutorials and Thinking in WarpScript categories
+* Explore the [tutorials](https://www.warp10.io/content/04_Tutorials) on [warp10.io](https://www.warp10.io/)
+* Follow us on [Twitter](https://twitter.com/warp10io)
+* Join the [Lounge](https://lounge.warp10.io/), the Warp 10 community on Slack
+* Subscribe to the [Google Group](https://groups.google.com/forum/#!forum/warp10-users)
+* Ask your question on StackOverflow using [warp10](https://stackoverflow.com/search?q=warp10) and [warpscript](https://stackoverflow.com/search?q=warpscript) tags
+* Get informed of the last news of the Platform thanks to the [newsletter](https://senx.us19.list-manage.com/subscribe/post?u=322486758928f239c3698c600&id=bc195bb85c)
 
-## Intermediate
+Our goal is to build a large community of users to move our platform into territories we haven't explored yet and to make Warp 10 and WarpScript the standards for sensor data and the IoT.
 
-This category targets developers who are already more familiar with the Spring Integration framework (past getting started), but need some more guidance while resolving more advanced technical problems that you have to deal with when switching to a Messaging architecture. For example, if you are looking for an answer on how to handle errors in various scenarios, or how to properly configure an **Aggregator** for the situations where some messages might not ever arrive for aggregation, or any other issue that goes beyond a basic understanding and configuration of a particular component to address "what else you can do?" types of problems, this would be the right place to find relevant examples.
+## Contributing to the Warp 10 Platform
 
-* **async-gateway** - Usage example of an asynchronous **Gateway**
-* **dynamic-poller** - Example shows usage of a **Poller** with a custom **Trigger** to change polling periods at runtime
-* **async-gateway** - Example shows usage of an **Asynchronous Gateway**
-* **errorhandling** - Demonstrates basic **Error Handling** capabilities of Spring Integration
-* **file-processing** - Sample demonstrates how to wire a message flow to process files either sequentially (maintain the order) or concurrently (no order).
-* **mail-attachments** - Demonstrates the processing of email attachments
-* **monitoring** The project used in the *[Spring Integration Management and Monitoring Webinar](https://www.springsource.org/node/3598)* Also available on the *[SpringSourceDev YouTube Channel](https://www.youtube.com/SpringSourceDev)*
-* **multipart-http** - Demonstrates the sending of HTTP multipart requests using Spring's **RestTemplate** and a Spring Integration **Http Outbound Gateway**
-* **rest-http** - This sample demonstrates how to send an HTTP request to a Spring Integration's HTTP service while utilizing Spring Integration's new HTTP Path usage. This sample also uses Spring Security for HTTP Basic authentication. With HTTP Path facility, the client program can send requests with URL Variables.
-* **retry-and-more** Provides samples showing the application of MessageHandler Advice Chains to endpoints - retry, circuit breaker, expression evaluating
-* **splitter-aggregator-reaper** A demonstration of implementing the Splitter and Aggregator *Enterprise Integration Patterns* (EIP) together. This sample also provides a concrete example of a [message store reaper][] in action.
-* **stored-procedures-derby**  Provides an example of the stored procedure Outbound Gateway using *[Apache Derby](https://db.apache.org/derby/)*
-* **stored-procedures-ms** Provides an example of the stored procedure Outbound Gateway using *Microsoft SQL Server*
-* **stored-procedures-oracle** Provides an example of the stored procedure Outbound Gateway using *ORACLE XE*
-* **stored-procedures-postgresql** Provides an example of the stored procedure Outbound Gateway using *[PostgreSQL](https://www.postgresql.org/)*
-* **tcp-async-bi-directional** - Demonstrates the use of *Collaborating Channel Adapters* for arbitrary async messaging (not request/reply) between peers.
-* **tcp-client-server-multiplex** - Demonstrates the use of *Collaborating Channel Adapters* with multiple in-flight requests/responses over a single connection.
-* **travel** - More sophisticated example showing the retrieval of weather (SOAP Web Service) and traffic (HTTP Service) reports using real services
-* **tx-synch** Provides a sample demonstrating the use of transaction synchronization, renaming an input file to a different filename, depending on whether the transaction commits, or rolls back.
+Open source software is built by people like you, who spend their free time creating things the rest of the community can use.
 
-## Advanced
+You want to contribute to Warp 10? We encourage you to read the [contributing page](https://www.warp10.io/content/06_Community/02_Contributing) before.
 
-This category targets advanced developers who are quite familiar with Spring Integration but are looking to address a specific custom need by extending the Spring Integration public API. For example, if you are looking for samples showing how to implement a custom **Channel** or **Consumer** (event-based or polling-based), or you are trying to figure out what is the most appropriate way to implement a custom **BeanParser** on top of the Spring Integration BeanParser hierarchy when implementing a custom namespace, this would be the right place to look. Here you can also find samples that will help you with adapter development. Spring Integration comes with an extensive library of adapters that allow you to connect remote systems with the Spring Integration messaging framework. However you might have a need to integrate with a system for which the core framework does not provide an adapter, so you have to implement your own. This category would include samples showing you how to implement various adapters.
 
-* **advanced-testing-examples** - Example test cases that show advanced techniques to test Spring Integration applications
-* **dynamic-ftp** - Demonstrates one technique for sending files to dynamic destinations.
-* **dynamic-tcp-client** - Demonstrates a technique for dynamically creating TCP clients.
+## Commercial Support
 
-## Applications
+Should you need commercial support for your projects, [SenX](https://senx.io/) offers support plans which will give you access to the core team developing the platform.
 
-This category targets developers and architects who have a good understanding of Message-Driven architecture and Enterprise Integration Patterns, and have an above average understanding of Spring and Spring integration and who are looking for samples that address a particular business problem. In other words, the emphasis of samples in this category is '**business use cases**' and how they can be solved via a Messaging architecture and Spring Integration in particular. For example, if you are interested to see how a Loan Broker process or Travel Agent process could be implemented and automated via Spring Integration, this would be the right place to find these types of samples.
+Don't hesitate to contact us at [sales@senx.io](mailto:sales@senx.io) for all your inquiries.
 
-* **cafe** - Emulates a simple operation of a coffee shop combining various Spring Integration adapters (Including **Router** and **Splitter**) see [Appendix A of the reference documentation](https://docs.spring.io/spring-integration/docs/current/reference/html/#samples) for more details. Implementations are provided for:
-  - AMQP
-  - JMS
-  - In memory channels
-* **cafe-scripted** - Scripted implementation of the classic **cafe** sample application. Supports **JavaScript**, **Groovy**, **Ruby**, and **Python**.
-* **loan-broker** - Simulates a simple banking application (Uses **Gateway**, **Chain**, **Header Enricher**, **Recipient List Router**, **Aggregator**) see [Appendix A of the reference documentation](https://docs.spring.io/spring-integration/docs/current/reference/html/#samples) for more details
-* **loanshark** This extension to the loan broker sample shows how to exchange messages between Spring Integration applications (and other technologies) using **UDP**.
-  **file-split-ftp** - Reads a file; splits into 3 based on contents; sends files over ftp; sends email with results.
+#### Trademarks
 
-# Contributing
-
-See the [Spring Integration Contributor Guidelines](https://github.com/spring-projects/spring-integration/blob/master/CONTRIBUTING.adoc) for information about how to contribute to this repository.
-
-# Resources
-
-For more information, please visit the Spring Integration website at: [https://projects.spring.io/spring-integration/](https://projects.spring.io/spring-integration/)
-
-[Spring Integration]: https://github.com/spring-projects/spring-integration
-[Spring Integration Extensions]: https://github.com/spring-projects/spring-integration-extensions
-[Spring Integration Templates]: https://github.com/spring-projects/spring-integration-templates/tree/master/si-sts-templates
-[Spring Integration Java Dsl]: https://github.com/spring-projects/spring-integration-java-dsl
-[Spring Integration Dsl Groovy]: https://github.com/spring-projects/spring-integration-dsl-groovy
-[Spring Integration Dsl Scala]: https://github.com/spring-projects/spring-integration-dsl-scala
-[Spring Integration Pattern Catalog]: https://github.com/spring-projects/spring-integration-pattern-catalog
-
-[message store reaper]: https://docs.spring.io/spring-integration/api/org/springframework/integration/store/MessageGroupStoreReaper.html
-
-[Xavier Padró]: https://github.com/xpadro/spring-integration
+Warp 10, WarpScript, WarpFleet, Geo Time Series and SenX are trademarks of SenX S.A.S.

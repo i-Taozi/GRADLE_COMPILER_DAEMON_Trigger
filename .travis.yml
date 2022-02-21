@@ -1,17 +1,18 @@
-dist: trusty
+  - main
+os: linux
+dist: bionic
+
+addons:
+  apt:
+    packages:
+      - thrift-compiler
+
 language: java
-jdk: oraclejdk8
-sudo: false
-services:
-  - mongodb
-  - rabbitmq
-  - redis-server
-before_cache:
-  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-cache:
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-install: true
+jdk:
+  - openjdk8
+
 script:
-    - ./gradlew check --refresh-dependencies --no-daemon
+  - ./gradlew -Djava.security.egd=file:/dev/urandom warp10:pack
+
+notifications:
+  email: false
