@@ -1,50 +1,37 @@
-# Warp 10 Platform
-# -------------------
-warp10/src/main/resources/REVISION
-/CHANGELOG.md
-archive/
-generated/
-
-# Gradle
-# ------
-.gradle/
-build/
-
-# IDEA
-# ----
-.idea/
-#!/.idea
-#/.idea/*
-#!/.idea/codeStyles
-#!/.idea/inspectionProfiles
+*/docs
+*/log
+*/bin
+*/out
+.idea
+!.idea/copyright/bisq_Affero_GPLv3.xml
+!.idea/copyright/profiles_settings.xml
+!.idea/codeStyleSettings.xml
 *.iml
-*.ipr
-*.iws
-out/
-
-# Eclipse
-# -------
+*.spvchain
+*.wallet
+*.ser
+*.log
+*.sw[op]
+.DS_Store
+.gradle
+build
 .classpath
 .project
-.settings/
-.metadata
-bin/
-
-# VS Code
-# -------
-.vscode/
-.history/
-
-# macOS
-# -----
-.DS_Store
-
-# Logs
-# ----
-*.log
-
-# Backup
-# ------
-*.tmp
-*.bak
-*.swp
+.settings
+*.java.hsp
+*.java.hsw
+*.~ava
+/bundles
+/bisq-*
+/lib
+/xchange
+desktop.ini
+*/target/*
+*.class
+deploy
+*/releases/*
+/monitor/TorHiddenServiceStartupTimeTests/*
+/monitor/monitor-tor/*
+.java-version
+.localnet
+/apitest/src/main/resources/dao-setup*

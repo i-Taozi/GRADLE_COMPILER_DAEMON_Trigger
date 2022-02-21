@@ -1,18 +1,16 @@
   - main
-os: linux
-dist: bionic
-
-addons:
-  apt:
-    packages:
-      - thrift-compiler
-
 language: java
 jdk:
-  - openjdk8
+    - openjdk11
 
-script:
-  - ./gradlew -Djava.security.egd=file:/dev/urandom warp10:pack
+cache:
+    directories:
+        - .git/lfs
+git:
+    lfs_skip_smudge: true
 
-notifications:
-  email: false
+install:
+    - git lfs pull
+
+before_install:
+    grep -v '^#' assets/src/main/resources/META-INF/services/bisq.asset.Asset | sort --check --dictionary-order --ignore-case
