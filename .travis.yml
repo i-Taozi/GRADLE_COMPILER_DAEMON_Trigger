@@ -1,16 +1,20 @@
   - main
 language: java
 jdk:
-    - openjdk11
+  - openjdk8
 
-cache:
-    directories:
-        - .git/lfs
-git:
-    lfs_skip_smudge: true
+jobs:
+  include:
+    - stage: Subproject-expression
+      install: cd sub_projects/expression
+      script: ./gradlew build publish
+    - stage: build
+      install: ./gradlew setupCiWorkspace
+      script: ./gradlew test
+    - stage: checkstyle
+      install: echo "skipping default ./gradlew assemble"
+      script: ./gradlew checkstyle
 
-install:
-    - git lfs pull
-
-before_install:
-    grep -v '^#' assets/src/main/resources/META-INF/services/bisq.asset.Asset | sort --check --dictionary-order --ignore-case
+env:
+  global:
+    TERM=dumb
