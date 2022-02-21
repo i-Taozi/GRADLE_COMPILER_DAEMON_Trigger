@@ -1,41 +1,56 @@
-#eclipse
-.project
-.classpath
-.settings/
-.metadata
-*.launch
-org.*
-bin
+*.class
+*.log
+*.log.*
 
-#idea
+# Ballerina
+Ballerina.lock
+
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+.idea
 *.iml
 *.ipr
 *.iws
-.idea
-out
 
-#gradle
-build
+# generated files
+target
+results
+.ballerina
+/gen
+/compiler/ballerina-lang/src/main/resources/grammar/BallerinaLexer.tokens
+/composer/modules/web/dist-electron/
+velocity.log
+/composer/modules/web/dist-electron
+extractedDistribution
+misc/testerina/modules/report-tools/node_modules/
+
+# gradle
 .gradle
-modules
-libs
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
 
-#runtime
-run
-run_server
-
-#mac
+# mac
 .DS_Store
 
-#Custom code to inject the the dev environment
-custom
-test-results
+.classpath
+.project
+.settings
+.vscode
 
-#licnse_checker
-# Not in git because it contains names + emails.
-license_checker/agreed.txt
-license_checker/unused_code.txt
-license_checker/out/**
+# java packages
+!/compiler/ballerina-lang/src/main/java/io/ballerina/build
 
-# For some annoying reason the tests creates a log file in "/logs/latest.txt"
-logs
+# code coverage reports
+/.jacoco

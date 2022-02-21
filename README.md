@@ -1,135 +1,67 @@
-## Welcome to BuildCraft on GitHub
+  [![Ballerina daily build](https://github.com/ballerina-platform/ballerina-lang/actions/workflows/daily_build.yml/badge.svg)](https://github.com/ballerina-platform/ballerina-lang/actions/workflows/daily_build.yml)
+  [![GitHub (pre-)release](https://img.shields.io/github/release/ballerina-platform/ballerina-lang/all.svg)](https://github.com/ballerina-platform/ballerina-lang/releases)
+  [![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/ballerina-platform/ballerina-lang.svg)](https://github.com/ballerina-platform/ballerina-lang/releases)
+  [![GitHub last commit](https://img.shields.io/github/last-commit/ballerina-platform/ballerina-lang.svg)](https://github.com/ballerina-platform/ballerina-lang/commits/master)
+  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+  [![codecov](https://codecov.io/gh/ballerina-platform/ballerina-lang/branch/master/graph/badge.svg)](https://codecov.io/gh/ballerina-platform/ballerina-lang)
 
-### Reporting an issue
+# The Ballerina Programming Language
 
-Please open an issue for a bug report only if:
+Ballerina is an open source programming language and platform for cloud-era application programmers to easily write software that just works.
 
-* you are sure the bug is caused by BuildCraft and not by any other mod,
-* you have at least one of the following:
-  * a crash report, 
-  * means of reproducing the bug in question,
-  * screenshots/videos/etc. to demonstrate the bug.
+#### Providing and consuming services
+It has inherently concurrent first-class language constructs for providing and consuming services.
 
-**If you are not sure if a bug report is valid, please use the "Ask Help!" subforum.**
+#### Sequence diagrams
+Sequence diagram based graphical view shows the most fundamental aspect of the semantics of a network distributed application.
 
-Please only use **official BuildCraft releases** for any kind of bug reports unless otherwise told to do by the BuildCraft team. Custom builds (for instance from Jenkins) are unsupported, often buggy and will **not** get any support from the developers.
+#### Structural typing
+It allows for looser coupling between distributed components and eliminates the friction of data binding.
 
-Please check if the bug has been reported beforehand. Also, provide the version of BuildCraft used - if it's a version compiled from source, link to the commit/tree you complied from.
+#### Metadata
+Extensible metadata enables easy integration of Ballerina programs with cloud platforms. 
 
-Please mention if you are using MCPC+, Cauldron, OptiFine, FastCraft or any other mods which optimize or otherwise severely modify the functioning of the Minecraft engine. That is very helpful when trying to reproduce a bug.
+## Getting started
 
-Please do not open issues for features unless you are a member of the BuildCraft team. For that, use the "Feature Requests" subforum.
+You can use one of the following options to try out Ballerina.
 
-BuildCraft, being an open-source project, gives you the right to submit a pull request if a particular fix or feature is important to you. However, if the change in question is major, please contact the team beforehand - we wish to prevent wasted effort.
+* [Quick Tour](https://ballerina.io/learn/quick-tour/)
+* [Ballerina by Example](https://ballerina.io/learn/by-example/) 
+* [Playground](https://play.ballerina.io/)
 
-### Contributing
+## Downloading and installing
 
-If you wish to submit a pull request to fix bugs or broken behaviour feel free to do so. If you would like to add 
-features or change existing behaviour or balance, please discuss it on discord before submitting a PR (https://discord.gg/v4geqgA).
+For instructions on downloading and installing, see [Installing Ballerina](https://ballerina.io/learn/installing-ballerina/).
 
-Do not submit pull requests which solely "fix" formatting. As these kinds of changes are usually very intrusive in commit history and everyone has their own idea what "proper formatting" is, they should be done by one of the main contributors. 
-Please only submit "code cleanup", if the changes actually have a substantial impact on readability.
+## Building from source
 
-PR implementing new features or changing large portions of code are helpful. But if you're doing such a change and if it gets accepted, please don't "fire and forget". Complex changes are introducing bugs, and as thorough as testing and peer review may be, there will be bugs. Please carry on playing your changes after initial commit and fix residual issues. It is extremely frustrating for others to spend days fixing regressions introduced by unmaintained submissions.
+For prerequisites and instructions on building from source, see [Installing from source](https://ballerina.io/learn/getting-started/installing-ballerina/#building-from-source).
 
-#### Frequently reported
+## Reporting issues and security flaws
 
-* java.lang.AbstractMethodError, java.lang.NoSuchMethodException
-  * A mod has not updated to the current BuildCraft API
-  * You are not using the correct version of BuildCraft for your Forge/Minecraft versions
-  * You are using the dev version on a normal game instance (or vice versa)
-* Render issue (Quarry causes flickering) - Try without OptiFine first! This is a known issue with some versions of OptiFine.
+Report an issue in the relevant repo out of the GitHub repos listed below. 
 
-### Compiling and packaging BuildCraft
-1. Ensure that `Java` (found [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)), `Git` (found [here](http://git-scm.com/)) are installed correctly on your system.
- * Optional: Install `Gradle` (found [here](http://www.gradle.org/downloads)). You probably want to install version 4.3.1.
-2. Create a base directory for the build
-3. Clone the BuildCraft repository into 'baseDir/BuildCraft/'
-4. Clone (and update) the submodules into 'baseDir/BuildCraft with 'git submodule init' and 'git submodule update'
-5. Navigate to basedir/BuildCraft in a shell and run one of two commands:
-    * `./gradlew setupCIWorkspace build` to just build a current jar (this may take a while).
-    * `./gradlew setupDecompWorkspace` to setup a complete development environment.
-    * With `Gradle` installed: use `gradle` instead of `./gradlew`
-    * On Windows: use `gradlew.bat` instead of `./gradlew`
-6. The compiles and obfuscated module jars will be in 'baseDir/BuildCraft/build/libs/&lt;build number&gt;/modules'
+>**Tip:** If you are unsure whether you have found a bug, search existing issues in the corresponding repo on GitHub and raise it in the [Ballerina Slack Channel](#https://ballerina-platform.slack.com/).
+  - Compiler, runtime, or tooling: <a href="https://github.com/ballerina-platform/ballerina-lang/issues">ballerina-lang</a> repo
+  - Standard library: <a href="https://github.com/ballerina-platform/ballerina-standard-library/issues">ballerina-standard-library</a> repo
+  - Language specification: <a href="https://github.com/ballerina-platform/ballerina-spec/issues">ballerina-spec</a> repo
+  - Website: <a href="https://github.com/ballerina-platform/ballerina-dev-website/issues">ballerina-dev-website</a> repo
+  - Security flaw: send an email to security@ballerina.io. For details, see the <a href="https://ballerina.io/security/">security policy</a>.
 
-Your directory structure should look like this before running gradle:
-***
 
-    baseDir
-    \- BuildCraft
-     |- buildcraft_resources
-     |- common
-     |- ...
-     \- BuildCraftAPI
-      |- api
-      |- ...
-     \- BuildCraft-Localization
-      |- lang
-      |- ...
+## Contributing to Ballerina
 
-***
+As an open source project, Ballerina welcomes contributions from the community. To start contributing, read these [contribution guidelines](https://github.com/ballerina-platform/ballerina-lang/blob/master/CONTRIBUTING.md) for information on how you should go about contributing to our project.
 
-And like this after running gradle:
-***
+Check the issue tracker for open issues that interest you. We look forward to receiving your contributions.
 
-    basedir
-    \- BuildCraft
-     |- .gradle
-     |- build
-     |- buildcraft_resources
-     |- common
-     |- ...
-     \- BuildCraftAPI
-      |- api
-      |- ...
-     \- BuildCraft-Localization
-      |- lang
-      |- ...
+## License
 
-***
+Ballerina code is distributed under [Apache license 2.0](https://github.com/ballerina-platform/ballerina-lang/blob/master/LICENSE).
 
-### Localizations
+## Useful links
 
-Localizations can be submitted [here](https://github.com/BuildCraft/BuildCraft-Localization). Localization PRs against
-this repository will have to be rejected.
-
-### Depending on BuildCraft
-
-Instructions for depending on BC 7.1.x can be found [here](https://github.com/BuildCraft/BuildCraft/blob/7.1.x/README.md) (for 1.7.10).
-
-8.0.x hasn't been finished yet, so there are no instructions for depending on it :(
-
-The following instructions are for BC 7.99.12 (1.12.2):
-
-Add the following to your build.gradle file:
-```
-repositories {
-    maven {
-        name "BuildCraft"
-        url = "https://mod-buildcraft.com/maven"
-    }
-}
-````
-
-If you want to depend on JUST the API then do this:
-````
-dependencies {
-    deobfCompile "com.mod-buildcraft:buildcraft-api:7.99.12"
-}
-````
-
-If you want to depend on JUST the lib then do this:
-````
-dependencies {
-    deobfCompile "com.mod-buildcraft:buildcraft-lib:7.99.12"
-}
-````
-
-If you want to depend on the whole of buildcraft do this:
-```
-dependencies {
-    deobfCompile "com.mod-buildcraft:buildcraft:7.99.12"
-}
-```
-Where `7.99.12` is the desired version of BuildCraft.
+* The ballerina-dev@googlegroups.com mailing list is for discussing code changes to the Ballerina project.
+* Chat live with us on our [Slack channel](https://ballerina.io/community/slack/).
+* Technical questions should be posted on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.
+* Ballerina performance test results are available [here](performance/benchmarks/summary.md).

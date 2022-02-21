@@ -1,57 +1,16 @@
-#!/bin/groovy
-
-// necessary jenkins plugins
-// - "Docker Pipeline" (http://wiki.jenkins-ci.org/display/JENKINS/Docker+Pipeline+Plugin)
-
-///////////////////////////////////////////////////////////////////////////////
-
-catchError() {
-
-    properties([
-        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '14', daysToKeepStr: '14', numToKeepStr: '180')),
-        disableConcurrentBuilds()
-    ])
-
-    milestone label: 'Start'
-
-    node() {
-        stage("Checkout") {
-            checkout scm
-            
-            sh """set -x
-                  git submodule foreach "git reset --hard || true" || true
-                  git reset --hard || true
-                  git submodule update --init || true
-               """
-        }
-
-        milestone label: 'Checkout complete'
-
-        withDockerContainer('openjdk:8-jdk') {
-            stage("Build") {
-                sh """set -x
-                      ./gradlew build -x test
-                   """
-
-                archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true, onlyIfSuccessful: true
+node('COMPONENT_ECS') {
+    stage('Run'){
+        withCredentials( [usernamePassword(credentialsId: "${env.NEXUS_CREDENTIALS_ID}", usernameVariable: 'USERNAME',
+                         passwordVariable: 'PASSWORD')]) {
+            withEnv(["JAVA_HOME=${tool env.JDK}", "NEXUS_USERNAME=${USERNAME}", "NEXUS_PASSWORD=${PASSWORD}" ]) {
+                sh """
+                    git clone https://github.com/ballerina-platform/ballerina-lang
+                    cd ballerina-lang/
+                    #Temporary javadoc creation and spot bug check will be skipped
+                    ./gradlew build --console=plain --stacktrace -scan -x createJavadoc -x spotbugsMain -x openapi-ballerina:ballerina-to-openapi-generator:test -x test -x check
+                    ./gradlew publish
+                """
             }
-            
-            milestone label: 'Build complete'
-            
-            stage("Test") {
-                try {
-                    sh """set -x
-                          ./gradlew clean test
-                       """
-
-                    step([$class: 'JUnitResultArchiver', testResults: '**/build/test-results/test/TEST-*.xml'])
-                } catch (e) {
-                    currentBuild.result = "UNSTABLE"
-                    echo "Exception caught while running test: ${e}"
-                }
-            }
-            
-            milestone label: 'Test complete'
         }
     }
-} // catchError()
+}
